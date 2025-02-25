@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Only run on pushes to the main branh
+      - fnal  # Only run on pushes to the main branh
   workflow_dispatch:  # Allows you to run this workflow manually from the Actions tab
 
 jobs:
