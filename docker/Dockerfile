@@ -19,9 +19,8 @@ FROM tomcat:9.0-jdk17
 
 ARG PORT_NUMBER=8080
 
-# Install git and vim
+# Keep image up to date
 RUN apt-get update && \
-    apt-get install -y git vim && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=maven_builder /dbwr/target/dbwr.war ${CATALINA_HOME}/webapps
