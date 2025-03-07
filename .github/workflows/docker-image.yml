@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - fnal  # Only run on pushes to the main branh
+      - fnal-dev
   workflow_dispatch:  # Allows you to run this workflow manually from the Actions tab
 
 jobs:
@@ -20,11 +20,7 @@ jobs:
       with:
           images: adregistry.fnal.gov/epics/phoebus-dbwr
           tags: |
-            # This is the default tag for the last commit of the default branch
-            type=edge
-            # This sets the latest tag for default branch
-            type=raw,value=latest,enable={{is_default_branch}}
-            type=raw,value=v${{ github.run_number }},enable={{is_default_branch}}
+            type=raw,value=dev${{ github.run_number }}
   
     - name: Log in to Docker Registry
       if: github.event_name != 'pull_request'
