@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dbwr-ingress-route
+  namespace: epics
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host(`phoebus-web.fnal.gov`)
+    services:
+    - kind: Service
+      name: dbwr-svc
+      port: 8080
+  tls:
+    secretName: fermi-wildcard-2025

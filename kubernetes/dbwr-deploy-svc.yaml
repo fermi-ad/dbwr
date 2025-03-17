@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbwr
+  namespace: epics
+  labels:
+    app: dbwr
+spec:
+  replicas: 1  # Single replica
+  selector:
+    matchLabels:
+      app: dbwr
+  template:
+    metadata:
+      labels:
+        app: dbwr
+    spec:
+      initContainers:
+        - name: git-sync
+          image: adregistry.fnal.gov/external/git-sync/git-sync:v4.2.3
+          volumeMounts:
+            - name: epics-config
+              mountPath: /git
+          args:
+            - --repo=https://ghe-pip2.fnal.gov/epics-controls/Config
+            - --root=/git
+            - --one-time=true
+      containers:
+        - name: tomcat
+          image: adregistry.fnal.gov/epics/phoebus-dbwr:v4
+          imagePullPolicy: Always
+          ports:
+            - name: web-tomcat
+              containerPort: 8080
+            - name: pvws-port
+              containerPort: 8005
+          volumeMounts:
+            - mountPath: "/usr/local/epics"
+              name: epics-config
+      volumes:
+        - name: epics-config
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dbwr-svc
+  namespace: epics
+spec:
+  type: ClusterIP
+  ports:
+    - name: web-tomcat
+      port: 8080
+      targetPort: 8080
+    - name: serverport
+      port: 8005
+      targetPort: 8005
+  selector:
+    app: dbwr
