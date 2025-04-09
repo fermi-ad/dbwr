@@ -19,6 +19,9 @@ export WHITELIST2=http://vclx4.fnal.gov/.*
 export EPICS_IOC_IGNORE_SERVERS=rsrv
 #export PV_DEFAULT_TYPE=pva
 
+# ================================== End old settings (unicast) ================================== #
+# ================================== Start new settings (multicast) ================================== #
+
 ##############################################
 # The variable most likely to need changing 
 # is this one:
