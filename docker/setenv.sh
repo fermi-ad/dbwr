@@ -11,10 +11,11 @@
 #
 
 export EPICS_CA_AUTO_ADDR_LIST= NO
-export EPICS_CA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
+#export EPICS_CA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
 export EPICS_PVA_AUTO_ADDR_LIST=NO
-export EPICS_PVA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
+#export EPICS_PVA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
 export WHITELIST1=file:/displays/CSS/.*
+export WHITELIST2=http://vclx4.fnal.gov/.*
 export EPICS_IOC_IGNORE_SERVERS=rsrv
 #export PV_DEFAULT_TYPE=pva
 
@@ -42,7 +43,7 @@ fi
 ########################################################################
 # Kluge to find interface (hopefully temporary)
 #set -- $(nmcli device status)
-export EPICS_HOST_INTERFACE=$5
+export EPICS_HOST_INTERFACE='eth0'
 
 ##############################################
 # EPICS Network Configuration
