@@ -41,7 +41,7 @@ fi
 
 ########################################################################
 # Kluge to find interface (hopefully temporary)
-set -- $(nmcli device status)
+#set -- $(nmcli device status)
 export EPICS_HOST_INTERFACE=$5
 
 ##############################################
