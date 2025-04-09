@@ -17,7 +17,7 @@ export EPICS_PVA_AUTO_ADDR_LIST=NO
 export WHITELIST1=file:/displays/CSS/.*
 export WHITELIST2=http://vclx4.fnal.gov/.*
 export EPICS_IOC_IGNORE_SERVERS=rsrv
-#export PV_DEFAULT_TYPE=pva
+export PV_DEFAULT_TYPE=pva
 
 ##############################################
 # The variable most likely to need changing 
