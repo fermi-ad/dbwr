@@ -46,7 +46,7 @@ fi
 ########################################################################
 # Kluge to find interface (hopefully temporary)
 #set -- $(nmcli device status)
-export EPICS_HOST_INTERFACE='eth0'
+export EPICS_HOST_INTERFACE='enp65s0f0'
 
 ##############################################
 # EPICS Network Configuration
