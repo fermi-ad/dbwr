@@ -13,7 +13,7 @@
 export EPICS_CA_AUTO_ADDR_LIST= NO
 #export EPICS_CA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
 export EPICS_PVA_AUTO_ADDR_LIST=NO
-#export EPICS_PVA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
+export EPICS_PVA_ADDR_LIST=`cat /usr/local/epics/Config/EPICS_ADDR_LIST | xargs echo`
 export WHITELIST1=file:/displays/CSS/.*
 export WHITELIST2=http://vclx4.fnal.gov/.*
 export EPICS_IOC_IGNORE_SERVERS=rsrv
