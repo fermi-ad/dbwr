@@ -7,10 +7,12 @@ export PV_DEFAULT_TYPE=pva
 # ========== End old settings (unicast) =========== #
 export EPICS_HOST_INTERFACE='enp65s0f0'
 # Uncomment to restore epicsENV source
-#export EPICS_PVA_ADDR_LIST="239.128.1.6,8@$EPICS_HOST_INTERFACE 239.128.1.6" # mcast search (PVXS lib)
+export EPICS_PVA_ADDR_LIST="239.128.1.6,8@$EPICS_HOST_INTERFACE 239.128.1.6" # mcast search (PVXS lib)
 
 #source /usr/local/epics/Config/epicsENV
 
 # Uncomment to restore epicsENV source
-#source /usr/local/tomcat/bin/epicsENV
-export EPICS_PVA_ADDR_LIST="131.225.120.160 131.225.120.165 131.225.120.227 131.225.120.86 10.200.21.14 10.200.21.15 10.200.21.16 10.200.21.24 10.200.21.25 10.200.21.31"
+source /usr/local/tomcat/bin/epicsENV
+
+# Uncomment to restore Unicast
+#export EPICS_PVA_ADDR_LIST="131.225.120.160 131.225.120.165 131.225.120.227 131.225.120.86 10.200.21.14 10.200.21.15 10.200.21.16 10.200.21.24 10.200.21.25 10.200.21.31"
