@@ -1,22 +1,11 @@
-# Display Runtime Default Files
-#export DBWR1=file:/bob/rules.bob
-#export DBWR2=file:/bob/macros.bob
-#export DBWR3=file:/bob/monitors_textupdate.bob
-#export DBWR4=file:/bob/DTDInsertion.bob
-
-# Configure PVWS URL 
-#export PVWS_HOST=localhost:8081
-#export PVWS_WS_PROTOCOL=ws
-#export PVWS_HTTP_PROTOCOL=http
-#
-
-export EPICS_CA_AUTO_ADDR_LIST= NO
-export EPICS_CA_ADDR_LIST=`cat /usr/local/tomcat/bin/EPICS_ADDR_LIST | xargs echo`
-export EPICS_PVA_AUTO_ADDR_LIST=NO
-export EPICS_PVA_ADDR_LIST=`cat /usr/local/tomcat/bin/EPICS_ADDR_LIST | xargs echo`
+#export EPICS_CA_ADDR_LIST=`cat /usr/local/tomcat/bin/EPICS_ADDR_LIST | xargs echo`
+#export EPICS_PVA_ADDR_LIST=`cat /usr/local/tomcat/bin/EPICS_ADDR_LIST | xargs echo`
 export WHITELIST1=file:/displays/CSS/.*
 export WHITELIST2=http://vclx4.fnal.gov/.*
-export EPICS_IOC_IGNORE_SERVERS=rsrv
 export PV_DEFAULT_TYPE=pva
 
-# ================================== End old settings (unicast) ================================== #
+# ========== End old settings (unicast) =========== #
+export EPICS_HOST_INTERFACE='enp65s0f0'
+export EPICS_PVA_ADDR_LIST="239.128.1.6,8@$EPICS_HOST_INTERFACE 239.128.1.6" # mcast search (PVXS lib)
+
+source /usr/local/epics/Config/epicsENV
