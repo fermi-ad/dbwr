@@ -31,6 +31,7 @@ RUN mkdir /displays && \
 
 COPY ./setenv.sh ${CATALINA_HOME}/bin
 COPY ./EPICS_ADDR_LIST ${CATALINA_HOME}/bin
+COPY ./epicsENV ${CATALINA_HOME}/bin
 RUN chmod +x ${CATALINA_HOME}/bin/setenv.sh
 RUN sed -i.bak -e "s|Connector port=\"8080\"|Connector port=\"${PORT_NUMBER}\"|g" \
   -e 's|Server port="8005" shutdown="SHUTDOWN"|Server port="-1" shutdown="SHUTDOWN"|g' \
