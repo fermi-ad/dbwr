@@ -1,11 +1,7 @@
 FROM alpine/git:latest as source_fetch
 
-RUN git clone https://github.com/fermi-ad/dbwr.git /dbwr
-ARG GIT_TAG=fnal
-RUN cd /dbwr && git checkout ${GIT_TAG}
-
-RUN git clone https://github.com/ornl-epics/pvws.git /pvws
-RUN cd /pvws && git checkout main
+RUN git clone --branch fnal https://github.com/fermi-ad/dbwr.git /dbwr
+RUN git clone --branch fnal https://github.com/fermi-ad/pvws.git /pvws
 
 FROM maven:3.8.7-eclipse-temurin-17 as maven_builder
 
@@ -20,7 +16,7 @@ FROM tomcat:9.0-jdk17
 ARG PORT_NUMBER=8080
 
 # Keep image up to date
-RUN apt-get update && apt-get install -y net-tools && \
+RUN apt-get update && apt-get install -y net-tools network-manager && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=maven_builder /dbwr/target/dbwr.war ${CATALINA_HOME}/webapps
