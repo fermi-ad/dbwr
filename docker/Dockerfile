@@ -26,7 +26,6 @@ RUN mkdir /displays && \
     ln -s /usr/local/epics/Config/CSS/ /displays
 
 COPY ./setenv.sh ${CATALINA_HOME}/bin
-COPY ./EPICS_ADDR_LIST ${CATALINA_HOME}/bin
 COPY ./epicsENV ${CATALINA_HOME}/bin
 RUN chmod +x ${CATALINA_HOME}/bin/setenv.sh
 RUN sed -i.bak -e "s|Connector port=\"8080\"|Connector port=\"${PORT_NUMBER}\"|g" \
