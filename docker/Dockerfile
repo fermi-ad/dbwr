@@ -1,7 +1,9 @@
 FROM alpine/git:latest as source_fetch
 
 RUN git clone --branch fnal https://github.com/fermi-ad/dbwr.git /dbwr
-RUN git clone --branch fnal https://github.com/fermi-ad/pvws.git /pvws
+RUN git clone https://github.com/ornl-epics/pvws.git /pvws
+# Using ORNL temporarily until we fix the FNAL pvws deployment
+#RUN git clone --branch fnal https://github.com/fermi-ad/pvws.git /pvws
 
 FROM maven:3.8.7-eclipse-temurin-17 as maven_builder
 
