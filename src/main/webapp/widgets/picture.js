@@ -1,6 +1,6 @@
-
 DisplayBuilderWebRuntime.prototype.widget_init_methods['picture'] = function(widget)
 {
+    //console.log("Initializing picture widget");
     let file = widget.data("file");
 
     let link = dbwr.display;
@@ -14,7 +14,7 @@ DisplayBuilderWebRuntime.prototype.widget_init_methods['picture'] = function(wid
     // allow access to _all_ files on server?!
     if (link.startsWith("file:"))
         console.warn("Cannot load picture from " + link + " because web browser cannot access files on server.");
-    
-    // console.log("Loading picture " + link);
+
+    //console.log("Loading picture " + link);
     widget.attr("src", link);
 }

@@ -126,8 +126,8 @@ public class Widget implements ParentWidget
             getRuleSupport().handleColorRule(parent, xml, this,
                                              "background_color", background_color,
                                              "set_svg_background_color");
-        
-        
+            getRuleSupport().handleEnabledRule(parent, xml, this, enabled);
+
         }
         catch (final Exception ex)
         {

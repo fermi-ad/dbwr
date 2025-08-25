@@ -36,8 +36,8 @@ public class PictureWidget extends Widget
 
 
 		attributes.put("data-file", file);
-
-        // Rotation
+		
+		// Rotation
 		final int rotate = XMLUtil.getChildDouble(xml, "rotation").orElse(0.0).intValue();
 		if (rotate != 0)
 		{

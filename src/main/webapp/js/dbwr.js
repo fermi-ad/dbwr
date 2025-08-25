@@ -549,7 +549,7 @@ class WidgetRule
 {
     /** @param wid Widget ID, "w123"
      *  @param property Widget property that the rule sets
-     *  @oaram pvs Array of PVs
+     *  @param pvs Array of PVs
      */
     constructor(wid, property, pvs)
     {
@@ -658,6 +658,28 @@ function set_height(widget, value)
 {
     widget.css("height", value + "px");
 }
+function set_border_color(widget, color)
+{
+    // Add a <div id="w123_border"> _before_ the widget
+    let id = widget.attr("id");
+    let bid = id + "_border";
+    let border = jQuery("#" + bid);
+    if (border.get(0) === undefined)
+    {
+        border = jQuery("<div>").attr("id", bid)
+                                .addClass("Widget");
+        widget.before(border);
+    }
+    border.css("border-color", color);
+}
+function set_transparent(widget, transparent)
+{
+    // Set opacity to 0.5 for transparent, 1.0 for opaque
+    widget.css("opacity", transparent ? "0.5" : "1.0");
+}
+
+
+
 // End of common WidgetRule.update methods
 
 
